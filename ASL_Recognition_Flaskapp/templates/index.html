@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <title>ASL Recognition</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type=text/javascript>
+    $(document).ready(function() {
+    	function stream_status(){
+    	
+    		$.getJSON('/status',function(data){
+    			$("#result").text(data.result);
+    		});
+
+    		$.getJSON('/letters',function(data){
+    			console.log(data.ltr)
+    			var ls=data.ltr;
+    			document.getElementById('id1').value=ls ;
+    			$("#ltrs").text(data.ltr);
+    		});
+    		 
+		}
+		stream_status();
+		window.setInterval(stream_status, 1000);
+
+    });
+    </script>
+    <style type="text/css">
+    </style>
+  </head>
+  <body>
+    <h1>Fingure Spelling American Sign Language Hand Gesture Recognition System</h1>
+    <img src="{{ url_for('calc') }}">
+    <p id=result></p>
+    <p id=ltrs></p>
+    <input type='text' id='id1' />
+  	<!-- <h1>{{ url_for('calc') }}</h1> -->
+  </body>
+</html>

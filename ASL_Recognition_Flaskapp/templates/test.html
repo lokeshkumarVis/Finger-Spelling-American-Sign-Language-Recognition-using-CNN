@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ASL Hand Gesture Recognition</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type=text/javascript>
+    $(document).ready(function() {
+      $("#txtbox").hide();
+      $("#save").hide();
+      $("#savespn").hide();
+      $("#doc").click(function() {
+        $("#id1").hide();
+        $("#send").hide();
+        $("#txtbox").show();
+        $("#save").show();
+        $("#savespn").show();
+      });
+
+
+      $("#msg").click(function() {
+        $("#id1").show();
+        $("#send").show();
+        $("#txtbox").hide();
+        $("#save").hide();
+        $("#savespn").hide();
+      });
+      
+      function stream_status(){
+      
+        $.getJSON('/status',function(data){
+          $("#result").text(data.result);
+        });
+
+        $.getJSON('/letters',function(data){
+          console.log(data.ltr)
+          var ls=data.ltr;
+          document.getElementById('id1').value=ls ;
+          document.getElementById('txtbox').value=ls ;
+          //$("#ltrs").text(data.ltr);
+        });
+         
+    }
+    stream_status();
+    window.setInterval(stream_status, 1000);
+
+    });
+  </script>
+<style> 
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 50px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.button2 {background-color: #008CBA;} /* Blue */
+input[type=text], select {
+    width: 90%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.flex-container {
+    display: -webkit-flex;
+    display: flex;  
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+    text-align: center;
+}
+
+.flex-container > * {
+    padding: 15px;
+    -webkit-flex: 1 100%;
+    flex: 1 100%;
+}
+
+.article {
+    text-align: left;
+    display: inline-block;
+}
+
+header {background: black;color:white;}
+footer {background: #aaa;color:white;}
+.nav {background:#eee;}
+
+.nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+.nav ul a {
+    text-decoration: none;
+}
+
+.responsive {
+    width: 100%;
+    height: auto;
+}
+
+@media all and (min-width: 768px) {
+    .nav {text-align:left;-webkit-flex: 1 auto;flex:1 auto;-webkit-order:1;order:1;}
+    .article {-webkit-flex:5 0px;flex:5 0px;-webkit-order:2;order:2;}
+    footer {-webkit-order:3;order:3;}
+}
+</style>
+</head>
+<body>
+
+<div class="flex-container">
+<header>
+  <h2>Finger Spelling American Sign Language Hand Gesture Recognition System</h2>
+</header>
+
+<nav class="nav">
+<!-- <img src="{{ url_for('calc') }}"> -->
+<img src="{{ url_for('calc') }}" class="responsive">
+</nav>
+
+<article class="article">
+<button class="button" id="msg">Message</button>
+<button class="button button2" id="doc">Document</button>
+  <input type='text' id='id1' />
+  <i class="fa fa-paper-plane" id="send" style="font-size:30px" ></i>
+  <textarea rows="25" cols="100" id="txtbox"></textarea>
+  <i class="fa fa-floppy-o" id="save" style="font-size:30px"></i>
+</article>
+
+<footer></footer>
+</div>
+
+</body>
+</html>
