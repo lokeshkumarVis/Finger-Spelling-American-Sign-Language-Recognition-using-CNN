@@ -27,10 +27,14 @@ Here are some useful resources for installing opencv from source:
 * [Ubuntu] https://www.pyimagesearch.com/2016/10/24/ubuntu-16-04-how-to-install-opencv/
 * [Raspberry Pi] https://www.pyimagesearch.com/2017/10/09/optimizing-opencv-on-the-raspberry-pi/
 
+```
+python run.py 
+```
 ### Running the Application
 
 After sucessful installation of prerequisites, execute the run.py python script to start the flask web service. 
 In the browser (preffered Google Chrome) use http://localhost:5000 or http://0.0.0.0:5000 to interact with the application
+
 
 ## Usage
 After sucessfully launching the application on your browser you can see the below interface to communicate with the gesture recognition system.
