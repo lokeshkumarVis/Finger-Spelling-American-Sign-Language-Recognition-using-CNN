@@ -48,7 +48,7 @@ After sucessfully launching the application on your browser you can see the belo
 ### Face Detection
 ![face detection](https://github.com/lokeshkumarVis/Finger-Spelling-American-Sign-Language-Recognition-using-CNN/blob/master/images/screenshots/face_detection.png)
 
-#### Trigger Gesture Recognition using Blink
+### Trigger Gesture Recognition using Blink
 ![blink detection](https://github.com/lokeshkumarVis/Finger-Spelling-American-Sign-Language-Recognition-using-CNN/blob/master/images/screenshots/blink.png)
 
 ### Hand Detection
