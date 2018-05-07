@@ -9,7 +9,7 @@ if __name__ == '__main__':
 	# construct the argument parse and parse the arguments
 	ap = argparse.ArgumentParser()
 	ap.add_argument("-d", "--device", required=True,
-		help="Provide the type of device chosen to run this App. -i windows | -i linux | -i raspberrypi")
+		help="Provide the type of device chosen to run this App. -d windows | -d linux | -d raspberrypi")
 	args = vars(ap.parse_args())
 	device=args["device"]
 	if device=='windows':
